@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
-import { Container, Text } from "native-base";
+import { Text } from "native-base";
 
 export default ({ title }) => {
   return (

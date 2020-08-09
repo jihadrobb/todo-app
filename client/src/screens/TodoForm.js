@@ -38,7 +38,7 @@ export default ({ route, navigation }) => {
   return (
     <Container>
       <Content>
-        <Title title={currentData ? "Edit Todo" : "Add Todo"} />
+        <Title title={currentData ? "Edit Todo" : "Add new Todo"} />
         <Form>
           <Item stackedLabel>
             <Label>Title</Label>
@@ -80,7 +80,7 @@ export default ({ route, navigation }) => {
               onDateChange={(date) => changeInput("due_date", date)}
             />
           </Item>
-          <Button block success style={{ margin: 10 }} onPress={submitForm}>
+          <Button block primary style={{ margin: 10 }} onPress={submitForm}>
             <Text>Submit</Text>
           </Button>
         </Form>
