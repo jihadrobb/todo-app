@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, CardItem, Text, Body, Button, Icon, View } from "native-base";
 import { useDispatch } from "react-redux";
+import { StyleSheet } from "react-native";
 import { deleteTodo, editTodo } from "../store/actions/todoAction";
 
 export default ({ navigation, todo }) => {
@@ -13,14 +14,15 @@ export default ({ navigation, todo }) => {
   return (
     <Card>
       <CardItem
+        style={styles.header}
         header
         button
         onPress={() => setShowDescription(!showDescription)}
       >
-        <Text>{todo.title}</Text>
+        <Text style={{ color: "#eee9e9" }}>{todo.title}</Text>
       </CardItem>
       {showDescription && (
-        <CardItem>
+        <CardItem style={styles.body}>
           <Body
             style={{
               flex: 1,
@@ -65,11 +67,29 @@ export default ({ navigation, todo }) => {
           </Body>
         </CardItem>
       )}
-      <CardItem footer bordered>
-        <Text>
-          Deadline: {todo.due_date ? new Date(todo.due_date).toLocaleString("en-ID", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}) : ""}
+      <CardItem footer style={styles.header}>
+        <Text style={{color: "#eee9e9"}}>
+          Deadline:{" "}
+          {todo.due_date
+            ? new Date(todo.due_date).toLocaleString("en-ID", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            : ""}
         </Text>
       </CardItem>
     </Card>
   );
 };
+
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: "#ff6f5e",
+    textDecorationColor: "#008b45",
+  },
+  body: {
+    backgroundColor: "#eeb4b4",
+  },
+});
