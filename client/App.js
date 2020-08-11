@@ -9,6 +9,7 @@ import Form from "./src/screens/TodoForm";
 const Stack = createStackNavigator();
 
 export default function App() {
+  console.disableYellowBox = true;
   return (
     <Provider store={store}>
       <NavigationContainer>
